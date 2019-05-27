@@ -1,8 +1,7 @@
 import { Request, Response } from "express";
 
-export const check = () => {
-  // console.log('hello')
-  return function(req: Request, res: Response, next: any) {
+export const check = (req: Request, res: Response, next: any) => {
+
     if (!req.body.first_name || req.body.first_name === "") {
       return res.json("first name is missing");
     }
@@ -34,5 +33,4 @@ export const check = () => {
       return res.json("roles is missing");
     }
     next();
-  };
 };
